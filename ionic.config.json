@@ -1,0 +1,7 @@
+{
+  "name": "YR",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
