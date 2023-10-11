@@ -1,0 +1,49 @@
+
+
+<div class="w-full  my-auto ">
+    
+  <div class="w-full  shadow rounded p-8 my-auto  ">
+    <p class="text-3xl font-bold leading-7 text-center text-white">Sign Up</p>
+    <form [formGroup]="registerData" (ngSubmit)="register()">
+      <div class="md:flex items-center mt-12">
+        <div class="w-full flex flex-col">
+          <ion-input formControlName="firstname" type="text"   label="Username " labelPlacement="floating"
+            class="border-b" />
+        </div>
+        <div class="w-full flex flex-col mt-4">
+          <ion-input  type="email" formControlName="email" label="Email Address" labelPlacement="floating"
+            class="border-b" />
+        </div>
+        <div class="w-full flex flex-col mt-4">
+          <ion-input  type="Password" formControlName="password" label="Password" labelPlacement="floating"
+            class="border-b" />
+        </div>
+        <div class="w-full flex flex-col mt-4">
+          <ion-input  type="number" formControlName="phoneNumber" label="Mobile Number" labelPlacement="floating"
+            class="border-b" />
+        </div>
+        <div class="w-full flex flex-col mt-4">
+          <ion-select label="User Category"   formControlName="role"  toggleIcon="caret-down-sharp"
+          interface="popover"
+           label-placement="floating"  class="border-b">
+            <ion-select-option value="CUSTOMER">Customer</ion-select-option>
+            <ion-select-option value="PROVIDER">Provider</ion-select-option>
+          </ion-select>
+        </div>
+      
+      </div>
+
+     
+      <div class="flex items-center justify-center w-full">
+        <button type="submit"
+          class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+          Sign Up
+        </button>
+      </div>
+      
+      <div class="text-center text-sm mt-10">
+        <a  routerLink="../login">Already have an account?</a>
+      </div>
+    </form>
+  </div>
+</div>

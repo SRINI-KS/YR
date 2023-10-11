@@ -1,0 +1,8 @@
+
+
+  .explain swiper-slide{
+    @apply  h-14  gap-5 border rounded-2xl flex justify-center items-center
+  }
+  .explain swiper-slide ion-icon{
+    @apply  text-green-400
+  }

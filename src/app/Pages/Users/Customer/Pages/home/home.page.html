@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <section>
+    <div
+      class="w-full h-20 text-center mt-10 text-xl items-center p-6 bg-green-100 rounded-xl"
+    >
+      <span>
+        <h6>Get the services what you want</h6>
+      </span>
+    </div>
+    <div class="sticky top-0 h-auto flex items-center bg-white">
+      <ion-searchbar
+        class="custom"
+        animated="true"
+        placeholder="Search the services"
+      ></ion-searchbar>
+    </div>
+  </section>
+  <section>
+    <!-- <ion-card class="">
+      <ion-card-header class="text-center">
+        <ion-card-title>Home Repairs</ion-card-title>
+      </ion-card-header>
+      <ion-card-content> -->
+        <div class="grid h-auto grid-cols-2 gap-2">
+          <div
+            [routerLink]="item.link"
+            *ngFor="let item of serviceCatogory"
+            class="w-full h-24 flex flex-row-reverse justify-around items-center p-5 bg-gray-100 rounded-xl"
+          >
+            <img
+              class="object-cover h-16 w-16 mix-blend-multiply"
+              [src]="item.image"
+              alt=""
+            />
+            <span>{{item.category}}</span>
+          </div>
+        </div>
+      <!-- </ion-card-content>
+    </ion-card> -->
+  </section>
+  <section>
+    <!-- <ion-item>
+      <ion-label position="floating"></ion-label>
+      <ion-input type="text"  #autocomplete></ion-input>
+      <ion-searchbar #searchbar></ion-searchbar>
+
+    </ion-item> -->
+    <capacitor-google-map #map></capacitor-google-map>
+    <!-- <button (click)="createMap()">Create Map</button> -->
+  </section>
+</ion-content>
