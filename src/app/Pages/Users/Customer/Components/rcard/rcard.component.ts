@@ -1,7 +1,11 @@
+import { Request } from './../../../../../../Models/request';
+import { ServiceDetails } from './../../../../../../Models/service';
+
 import { Component, OnInit } from '@angular/core';
 import { IonicSlides } from '@ionic/angular';
-import { SwiperOptions } from 'swiper/types';
-import { Request } from '../../Models/request';
+
+import { ActivatedRoute } from '@angular/router';
+import { CommanService } from 'src/app/Services/Comman/comman.service';
 @Component({
   selector: 'app-rcard',
   templateUrl: './rcard.component.html',
@@ -9,21 +13,37 @@ import { Request } from '../../Models/request';
 })
 export class RCardComponent implements OnInit {
   swiperModules = [IonicSlides];
-  request: Request = {
-    serviceDetails: {
-      serviceName: '',
 
-      category: '',
-      subCategory: '',
-      discription: '',
-      customIssiue: [],
-    },
+  params: string = ''; //store the router value
+  
+  ServiceDetails!: ServiceDetails[];  //store the service details from the comman service
+  
+  serviceForm: Request = {
+    name: '',
+    mobileNumber: '',
     workLocation: '',
     appointmentDate: new Date(),
+
+    serviceName: '',
+    discription: '',
+    category: [],
+    subCategory: {},
+    customIssiue: [],
+    image: []
   };
-  constructor() {}
+
+  constructor(private route: ActivatedRoute, private services: CommanService) {
+    this.route.params.subscribe((params) => {
+      this.params = params['category'];
+    });
+  }
 
   ngOnInit() {
-    console.log(this.request);
+    this.getServicesDetails();
+    console.log(this.serviceForm, 'service FOrm');
+  }
+  getServicesDetails() {
+    this.ServiceDetails = this.services.getServicesDetails(this.params);
+    console.log(this.ServiceDetails);
   }
 }

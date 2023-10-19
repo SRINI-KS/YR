@@ -10,7 +10,8 @@ const routes: Routes = [
     component: HomePage
   },
   {
-    path: 'rCard',
+    path: 'rCard/:category',
+    pathMatch:'full',
     component: RCardComponent
   }
 ];
