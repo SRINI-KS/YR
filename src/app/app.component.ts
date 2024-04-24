@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    // this.authService.setRole("ADMIN")
+    // this.authService.setRole("CUSTOMER")
     // this.authService.setToken("kdjslkfj")
     if (this.authService.isLogin() && this.authService.isProvider()) {
       this.router.navigate(['provider']);

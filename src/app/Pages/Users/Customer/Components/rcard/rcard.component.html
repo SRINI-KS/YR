@@ -15,7 +15,7 @@
     </div>
 
     <swiper-container
-      class="explain flex"  
+      class="explain flex"
       [space]="3"
       [slidesPerView]="1.4"
       [loop]="false"
@@ -37,13 +37,90 @@
   </section>
 
   <section class="mt-10">
-    <div>
-      <form>
-        <ion-radio-group class="flex flex-col " value="custom-checked">
-          <ion-radio labelPlacement=""  *ngFor="let item of ServiceDetails[0].category"  [value]="item" aria-label="Custom checkbox">{{item}}</ion-radio>
-        </ion-radio-group>
-      </form>
-    </div>
+    <form action="">
+      <mat-tab-group>
+        <mat-tab label="Category">
+          <div>
+            <ion-card class="p-5">
+              <ion-card-header align="center" class="pb-5">
+                <ion-card-title> <h1>Select the Category</h1> </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-radio-group
+                  ngModel
+                  [(ngModel)]="serviceForm.category"
+                  name="category"
+                  class="flex flex-col"
+                  value="custom-checked"
+                >
+                  <ion-radio
+                    class="pb-3"
+                    (click)="change($event)"
+                    *ngFor="let item of ServiceDetails[0].category"
+                    [value]="item"
+                    aria-label="Custom checkbox"
+                    >{{ item }}</ion-radio
+                  >
+                </ion-radio-group>
+              </ion-card-content>
+            </ion-card>
+          </div>
+
+          <div *ngIf="subCategory != null">
+            <ion-card class="p-5">
+              <ion-card-header align="center">
+                <ion-card-title
+                  ><h1>Select the sub category</h1></ion-card-title
+                >
+              </ion-card-header>
+              <ion-card-content>
+                <ion-radio-group
+                  ngModel
+                  [(ngModel)]="serviceForm.subCategory"
+                  name="subCategory"
+                  class="flex flex-col"
+                  value="custom-checked"
+                >
+                  <ion-radio
+                    (click)="display()"
+                    class="pb-3"
+                    *ngFor="let item of subCategory"
+                    [value]="item"
+                    aria-label="Custom checkbox"
+                    >{{ item }}
+                  </ion-radio>
+                </ion-radio-group>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </mat-tab>
+        <mat-tab label="Appointment">
+          <div class="mt-10">
+            <ion-card>
+              <ion-card-header align="center">
+                <ion-card-title
+                  ><h1>Choose the Schedule Date</h1></ion-card-title
+                >
+              </ion-card-header>
+              <ion-datetime
+                name="date"
+                ngModel
+                [(ngModel)]="serviceForm.appointmentDate"
+                display-format="DD MMM YYYY"
+                [(ngModel)]="selectedDate"
+                [min]="minDate"
+                [max]="maxDate"
+                presentation="date"
+                [preferWheel]="true"
+              ></ion-datetime>
+            </ion-card>
+          </div>
+          <div class="w-full h-32 border">
+            <a class="w-16 h-12 bg-green-300" (click)="getCoordinates()">Get Current Location</a>
+          </div>
+        </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+      </mat-tab-group>
+    </form>
   </section>
- 
 </ion-content>

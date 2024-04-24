@@ -2,15 +2,15 @@ import { FileHandle } from './file-handle.model';
 
 export interface Request {
   serviceName: string;
-  image: FileHandle[];
+  images: FileHandle[];
   category: string[];
-  subCategory: Record<string,string[]>;
+  subCategory: {};
   discription: string;
   customIssiue: string[];
 
   name: string;
   mobileNumber: string;
-  workLocation: string;
+  workLocation: {};
   appointmentDate: Date;
 }
 

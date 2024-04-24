@@ -8,13 +8,17 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { RCardComponent } from '../../Components/rcard/rcard.component';
+import { MaterialDesignModule } from 'src/app/Modules/Material/material-design/material-design.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    MaterialDesignModule,
+    
   ],
   declarations: [HomePage,RCardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

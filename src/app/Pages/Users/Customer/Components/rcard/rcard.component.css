@@ -39,3 +39,21 @@ ion-radio.radio-checked::part(mark) {
   transform: rotate(45deg);
 }
 /* radio button */
+
+
+ion-datetime {
+  /* --background: rgb(245, 235, 247); */
+  /* --background-rgb: 245, 235, 247; */
+  --wheel-highlight-background: rgb(218, 216, 255);
+  /* --wheel-fade-background-rgb: 245, 235, 247; */
+}
+
+ion-datetime::part(wheel-item) {
+  color: rgb(0, 0, 0);
+}
+
+capacitor-google-map {
+  display: inline-block;
+  width: 275px;
+  height: 400px;
+}
